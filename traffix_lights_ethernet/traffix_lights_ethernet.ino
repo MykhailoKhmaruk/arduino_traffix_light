@@ -25,8 +25,9 @@ static void print_webpage(BufferFiller& buf)
     "<html><head><title>Trafix lights</title></head><body>"
     "<center><h1>Trafix lights</h1>"
     "<hr><h2><a href=\"/red\">RED</a>"
-    "<br><a href=\"/yellow\">YELLOW</a>"
+   // "<br><a href=\"/yellow\">YELLOW</a>"
     "<br><a href=\"/green\">GREEN</a>"
+    "<br><a href=\"/default\">DEFAULT</a>"
     "<br></h2>"
     "</center><hr>"
     "</body></html>"
@@ -126,6 +127,11 @@ void loop()
       ToggleLight(1);
       
     }
+   //   else
+   // if(strncmp("GET /default", data, 6) == 0) {  
+   //   print_webpage(bfill);
+   //   ToggleLight(1);
+   //   }
     else{
       bfill.emit_p(PSTR("HTTP/1.0 401 Unauthorized\r\nContent-Type: text/html\r\n\r\n<h1>401 Unauthorized</h1>"));
       
